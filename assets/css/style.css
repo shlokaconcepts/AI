@@ -45,6 +45,7 @@ Last update : 04/19/2022
 /*CSS Variable*/
 :root {
   /*color Variable*/
+  --color-primary: #7064e9;
   --c-white: #ffffff;
   --primary-purple: #ee7723;
   --primary-yellow: #FCA61F;
@@ -66,6 +67,12 @@ Last update : 04/19/2022
   --ff-poppins: 'Poppins', sans-serif;
   --ff-nunito: 'Nunito Sans', sans-serif;
   --ff-inter: 'Inter', sans-serif;
+  --border-width: 2px;
+  --radius-small: 6px;
+  --radius: 10px;
+  --radius-big: 16px;
+  --radius-bigger: 50px
+
 }
 
 /* Media Query Variable */
@@ -92,7 +99,17 @@ ul {
 
 ins,
 a {
+  color: var(--primary-purple);
   text-decoration: none !important;
+  outline: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  outline: none;
+  color: var(--c-easter-purple);
 }
 
 /* *****
@@ -130,6 +147,7 @@ input[type="submit"]:hover {
 input[type="submit"]:focus {
   outline: none;
 }
+
 
 textarea {
   padding: 8px 10px;
@@ -429,6 +447,10 @@ Animations and Background end
   margin-top: 30px;
 }
 
+.ml-60{
+  margin-left: 60px;
+}
+
 .pt-50 {
   padding-top: 50px;
 }
@@ -626,6 +648,30 @@ h5 {
 
 .btn-transparent-v1 i::before {
   vertical-align: middle;
+}
+
+button.btn-default, div.btn-default {
+  padding: 0 28px;
+  border-style: solid;
+  border-width: 0px;
+  border-color: transparent;
+  border-radius: 8px;
+  background-color: transparent;
+  background: linear-gradient(94deg, #dd00ac 10.66%, #7130c3 53.03%, #410093 96.34%, rgba(255, 0, 238, 0.26) 191.41%, rgba(255, 59, 212, 0) 191.43%);
+  background-size: 200% auto;
+  transition-duration: 300ms;
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: var(--shadow-light);
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  letter-spacing: 0.5px;
+  width: auto;
+  transition: 0.4s;
 }
 
 .submit-defult-btn {
@@ -1053,6 +1099,62 @@ h5 {
     padding: 15px 33px;
   }
 }
+
+@media only screen and (max-width: 767px) {
+  .rainbow-compare-table.style-1 {
+    overflow-x: auto;
+    display: block !important;
+    margin: 10px 20px !important;
+  }
+}
+.rainbow-compare-table.style-1 table {
+  text-align: center !important;
+  margin-bottom: 0;
+}
+.rainbow-compare-table.style-1 table th {
+  border: 1px solid var(--color-border);
+  z-index: 10;
+  height: 60px;
+}
+.rainbow-compare-table.style-1 table th:nth-child(1) {
+  border: none;
+}
+.rainbow-compare-table.style-1 table th.style-prymary {
+  background-color: var(--color-blackest);
+  color: var(--color-primary);
+}
+.rainbow-compare-table.style-1 table td {
+  width: 20%;
+}
+.rainbow-compare-table.style-1 table td:nth-child(1) {
+  border-left: 0;
+  height: 60px;
+  text-align: left;
+}
+.rainbow-compare-table.style-1 table td .icon {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-heading);
+  font-size: var(--font-size-b2);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.rainbow-compare-table.style-1 table td .icon.bg-dark {
+  background-color: var(--color-gray);
+}
+.rainbow-compare-table.style-1 table .bdr-top-0 {
+  border-top: 0;
+}
+.rainbow-compare-table.style-1 table h6 {
+  margin-bottom: 0;
+}
+.rainbow-compare-table.style-1 table .heading-row td {
+  height: 80px !important;
+}
+
 
 .btn-fill-outlined-orange {
   display: inline-block;
@@ -2495,21 +2597,60 @@ header .header-defult {
     Newslatter style end
 ==============================*/
 /* =============================
+    Separator Animation start
+==============================*/
+.separator-animated {
+  position: relative;
+  overflow: hidden;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0) 0%, rgba(111, 100, 233, 0.6) 50%, rgba(0, 0, 0, 0) 100%);
+}
+.separator-animated.animated-true::before {
+  content: "";
+  position: absolute;
+  width: 3%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0) 0%, var(--color-primary) 50%, rgba(0, 0, 0, 0) 100%);
+  backdrop-filter: blur(20px);
+  animation: separateline 5s ease-in-out infinite;
+}
+
+@keyframes separateline {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 110%;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .footer-style-3 .separator-animated {
+    margin: 20px !important;
+  }
+}
+/* =============================
+    Separator Animation end
+==============================*/
+/* =============================
    12. footer style start
 ==============================*/
 /*footer style one*/
 .footer-style-one {
   background: rgba(137, 118, 253, 0.1);
   padding-top: 85px;
-  padding-bottom: 50px;
 }
 
 .footer-style-one .footer-about .footer-disc {
-  padding-top: 36px;
+  padding-top: 30px;
+  font-size: 16px;
+  text-align: justify;
+  padding-right: 20%;
 }
 
 .footer-style-one .footer-about .footer-social-links {
-  padding-top: 40px;
+  padding-top: 30px;
 }
 
 .footer-style-one .footer-about .footer-social-links li {
@@ -2552,7 +2693,7 @@ header .header-defult {
 .footer-style-one .footer-widget .footer-links li a {
   font-family: var(--ff-nunito);
   font-weight: 400;
-  font-size: 20px;
+  font-size: 16px;
   color: #494369;
   display: inline-block;
   margin-top: 15px;
@@ -2785,9 +2926,93 @@ header .header-defult {
   color: #404040;
 }
 
+.subtitle {
+  font-weight: 400;
+  color: #494369;
+  font-size: 16px;
+  padding-right: 31%;
+  line-height: 28px;
+  margin-bottom: 32px;
+}
+
+.newsletter-form input {
+  flex-grow: 1;
+  width: auto;
+  margin-right: 10px;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.form-group input {
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  height: 50px;
+  font-size: 16px;
+  padding: 0 15px;
+  max-width: 280px;
+}
+
+.newsletter-form button {
+  padding: 0 20px;
+  background: var(--c-easter-purple);
+}
+
 /* =============================
     footer style start
 ==============================*/
+
+/*--------------------------
+    Copyright Area  
+---------------------------*/
+.copyright-style-one {
+  background: rgba(137, 118, 253, 0.1);
+  padding: 20px 0;
+  border-top: 1px solid var(--color-border);
+}
+.copyright-style-one .copyright-text {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.copyright-style-one .ft-menu {
+  padding: 0;
+  margin: 0 -10px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+@media only screen and (max-width: 767px) {
+  .copyright-style-one .ft-menu {
+    justify-content: center;
+  }
+}
+.copyright-style-one .ft-menu li {
+  margin: 0;
+  padding: 0 10px;
+  position: relative;
+}
+.copyright-style-one .ft-menu li + li::after {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 1px;
+  background: var(--color-border);
+  left: -1px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.copyright-style-one .ft-menu li a {
+  font-size: 14px;
+}
+.copyright-style-one.variation-two {
+  background: var(--color-blackest);
+}
+.copyright-style-one.no-border {
+  border-top: 0;
+}
+
 /* =============================
   13. Country map style start
 ==============================*/
